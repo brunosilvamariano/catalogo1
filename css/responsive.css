@@ -1,0 +1,330 @@
+/* Estilos adicionais para melhorar a responsividade e performance */
+
+/* Otimizações para dispositivos móveis */
+@media (max-width: 576px) {
+    .product-card {
+        margin-bottom: 15px;
+    }
+    
+    .product-image {
+        height: 220px;
+    }
+    
+    .product-title {
+        font-size: 1.1rem;
+    }
+    
+    .product-price {
+        font-size: 1.2rem;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-favorite {
+        align-self: flex-end;
+    }
+    
+    .product-view-body {
+        flex-direction: column;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .product-view-gallery,
+    .product-view-info {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .product-view-main-image {
+        height: 250px;
+    }
+    
+    .product-view-thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .context-image {
+        height: 180px;
+    }
+    
+    .look-image {
+        height: 300px;
+    }
+    
+    .look-title {
+        font-size: 1.4rem;
+    }
+    
+    .filter-container {
+        margin-bottom: 20px;
+        position: sticky;
+        top: 70px;
+        z-index: 10;
+    }
+}
+
+/* Melhorias de performance */
+.lazy-load {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lazy-load.loaded {
+    opacity: 1;
+}
+
+/* Melhorias de acessibilidade */
+.btn:focus,
+.filter-option:focus,
+.product-card:focus,
+.btn-favorite:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Melhorias de usabilidade */
+.filter-option {
+    cursor: pointer;
+    user-select: none;
+}
+
+.product-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* Animações otimizadas */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Melhorias de feedback visual */
+.btn-whatsapp:active {
+    transform: scale(0.95);
+}
+
+.filter-option:active {
+    transform: scale(0.95);
+}
+
+/* Melhorias de carregamento */
+.skeleton-loader {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Melhorias de navegação */
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+/* Melhorias de scroll */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+}
+
+/* Melhorias para tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+    .product-card {
+        height: 100%;
+    }
+    
+    .product-image {
+        height: 250px;
+    }
+    
+    .context-image {
+        height: 220px;
+    }
+    
+    .filter-container {
+        position: sticky;
+        top: 70px;
+        z-index: 10;
+    }
+}
+
+/* Melhorias para impressão */
+@media print {
+    header, footer, .newsletter-section, .floating-btn {
+        display: none !important;
+    }
+    
+    .product-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+}
+
+/* Melhorias para modo escuro do sistema */
+@media (prefers-color-scheme: dark) {
+    .product-view-overlay {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* Melhorias para telas grandes */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero-banner {
+        height: 90vh;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+}
+
+/* Melhorias para telas ultra-largas */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+/* Melhorias para dispositivos com toque */
+@media (hover: none) {
+    .product-card:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Melhorias para acessibilidade de teclado */
+.keyboard-focus:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* Melhorias para carregamento de página */
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page-loaded .page-transition {
+    opacity: 1;
+}
+
+/* Melhorias para notificações */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: var(--primary-color);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    z-index: 2000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    border-left: 4px solid var(--danger-color);
+}
+
+/* Melhorias para carregamento de imagens */
+.image-placeholder {
+    background-color: var(--gray-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
